@@ -1,0 +1,13 @@
+package com.example.juniorjavatask;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class JuniorJavaTaskApplicationTests {
+
+    @Test
+    void contextLoads() {
+    }
+
+}
