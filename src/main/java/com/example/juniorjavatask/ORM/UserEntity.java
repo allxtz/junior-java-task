@@ -30,9 +30,9 @@ public class UserEntity {
     private String readonly;
 
     public UserEntity(String username, String password, String role, String ronly) {
-        this.username=username;
-        this.password=password;
-        this.role=role.toUpperCase();
-        this.readonly=ronly;
+        this.username = username;
+        this.password = password;
+        this.role = role.toUpperCase();
+        this.readonly = ronly;
     }
 }
