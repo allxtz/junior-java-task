@@ -1,0 +1,60 @@
+Task 2a 
+Briefly describe where you see problems when working with this table and how these 
+problems could be solved.
+
+Answer
+large table ~ 5 mil records => it also has too much info that repeats (a lot of text in the columns) in the same table (split into multiple tables and use fk)
+
+offers_table
+id(pk) city_id(fk) camper_id(fk) extra_id(fk) insurance_id(fk) price_eur price_usd
+
+table1
+id(pk) city country city_en city_fr
+
+table2
+id(pk) camper
+
+table3
+id(pk) extra1 extra2 extra3
+
+table4
+id(pk) insurance1 insurance2 insurance3
+
+Example ------> Optimize response time for query
+
+All city/country combinations where motorhomes are offered, grouped by the different 
+languages.
+  select o.id, t1.city , t1.ccountry .... from table1 t1 inner join offers_table o on o.city_id=t1.id
+
+
+Task 2b 
+What would be considered in the choice of data types for each column ?
+
+Answer
+- char replaced with varchar (varchar allocates size dynamically - 1byte foreach char + 1byte for size)
+- price should be decimal instead because you can specify the number of digits after a decimal point DECIMAL(x,y)-fixed number
+
+Task 2c 
+What is meant by an "index" on a table and what should be considered when indexing ? 
+What indexes would you set in the given example ?
+
+Answer
+- pk is auto indexed (clusterd)
+- indexes are used in order to retrive data faster
+- in sql the most efficient type of index is int
+- fk is auto indexed
+
+example above 
+offers_table
+id(pk) city_id(fk) camper_id(fk) extra_id(fk) insurance_id(fk) price_eur price_usd
+...
+
+Task 2d 
+Explain briefly what "foreign keys" are, when they should be used and when they should 
+not be used! Would you use foreign keys in the example ? Please give reasons for your 
+answer.
+
+Answer
+- fk is a constraint (maintain relations between tables)
+- you can also set an action type for a fk (on update,delete) ex: cascade ---> if u have a table with user_profiles with pk and one with user_profiles_details with fk --- if u delete the user id 1 then u wanna delete the user profile id with fk 1 . for that u use cascade on delete.
+- ex: use fk when u wanna insert a new offer so that u make sure the city_id u give is included in table_1 
