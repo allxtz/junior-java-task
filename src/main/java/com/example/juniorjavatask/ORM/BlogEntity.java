@@ -5,7 +5,12 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-
+/**
+ *@author Alex
+ *@version 1.0
+ *@implNote -
+ *@since 2022-06-21
+ */
 @Data
 @NoArgsConstructor
 @Entity
